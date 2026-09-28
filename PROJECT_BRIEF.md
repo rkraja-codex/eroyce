@@ -91,26 +91,49 @@ Fonts (Google Fonts): Space Grotesk 500/700, Hanken Grotesk 400/500/600/700, Jet
 7. **All forms** keep the Figma card styling but submit only **Name, Email, Phone** to Google Sheets (section 8).
 8. Figma images that show other brands ("GREEN BULL ENERGY SOLUTIONS", "E-VEE MOBILITY") must be replaced with official E-Royce photos (section 7) before going live.
 
-## 4. Pages and sections (from Figma)
+## 4. Pages and sections (from PDF `eroyce.pdf`)
 
 **Home (`index.html`)**
 1. Top status bar + header
-2. Hero: eyebrow badge, H1 "The Efficient Choice for the Future of Electric Mobility." ("Future" red + underlined), paragraph, 2 CTAs (Explore Fleet / Enquire Now)
-3. Vehicle showcase canvas: large image, 2 floating white badges (100% ELECTRIC / HIGH TORQUE), bottom HUD bar with 2 tags
-4. 4 KPI cards
-5. "Who is E-Royce": image with floating card + text + 3 pillar cards (Pioneering Drive, Engineering Quality, Eco Manufacturing) → `id="about"`
-6. Fleet showcase: header + 3 filter tabs (All / Commercial 3-Wheelers / Electric 2-Wheelers — must work in JS), 5 vehicle cards + "Need Custom Fleet Solutions?" card → `id="vehicles"`
-7. Use cases: 4 cards (Last-Mile Cargo, Urban Passenger Transit, Daily Commuting, Industrial Campuses) → `id="applications"`
-8. Technology & cost: 3 feature rows + cost comparison box → `id="technology"`
-9. Direct outlets: 4 cards → `id="outlets"`
-10. Booking form section → `id="contact"`
-11. Footer
+2. Hero: "The Efficient Choice for the Future of Electric Mobility." (Future red + underlined), 2 CTAs, vehicle showcase canvas with floating badges (100% ELECTRIC / HIGH TORQUE), and bottom KPI bar (4 metrics).
+3. "Pioneering Clean Transportation for Tomorrow's Bharat": 3 pillar cards (Pioneering Drive, Engineering Quality, Eco Manufacturing) → `id="about"`
+4. Fleet showcase ("Explore Our Engineered Fleet"): 3 filter tabs, 5 vehicle cards + "Need Custom Fleet Solutions?" card → `id="vehicles"`
+5. Applications ("Engineered for Bharat's Demanding Routes"): 4 cards (Last-Mile Cargo, Urban Passenger Transit, Daily Commuting, Industrial Campuses) → `id="applications"`
+6. Technology ("Safety, Durability, and Thermal Resilience in Every Weld"): 3 feature rows + Fleet Economics Comparison card → `id="technology"`
+7. Direct outlets ("Direct Outlets & Corporate Presence"): 4 location cards → `id="outlets"`
+8. Booking form ("Book Your Vehicle or Request Dealership Franchise"): 2 contact cards (WhatsApp, Helpline) + Reserve/Enquire Online Form → `id="contact"`
+9. Footer CTA ("Ready to Electrify Your Fleet & Commute?") and standard Footer.
 
-**Vehicles (`vehicles.html`)**: hero + 4 stat cards · filter tabs · eBull row (image left) · Sardar row (image right) · RS180 row (image left) · RS90 + Spike two-column bento · TCO comparison (3 cards) · specification matrix table (scrolls horizontally inside its card on mobile) · test-drive form · footer.
+**Vehicles (`vehicles.html`)**
+1. Hero: "Engineered for Performance. Built for Reliability." + 4 stat cards (Payload Ceiling, Electric Range Max, Fleet Operating OPEX, Battery Cell Lifecycle).
+2. Filter tabs.
+3. eBull Electric Carrier row (image left).
+4. Sardar Heavy Commercial Auto row (image right).
+5. RS180 Flagship eBike / Scooter row (image left).
+6. RS90 + Spike City Electric Scooter (two-column bento).
+7. TCO Comparison ("Switch to Electric 3-Wheelers: Save Up to ₹1,12,000 / Year"): 3 cards (Diesel 3W, CNG 3W, E-Royce Electric).
+8. Specification matrix table ("Vehicle Specification Matrix").
+9. Schedule Form ("Experience Silent Velocity First-Hand").
+10. Footer.
 
-**Vehicle detail template (`ebull.html` design, reused for all 5)**: breadcrumb · headline + 2 highlight badges · 16:9 hero image + spec bar (4 specs) · dual CTAs · 6 feature cards · 4 application cards · 4 spec modules (tables) · enquiry form · footer. For vehicles where a section has no real data, drop that card rather than invent content.
+**Vehicle detail template (`ebull.html` design, reused for all 5)**
+1. Breadcrumb + Headline ("EBULL AUTO — HEAVY-DUTY ZERO-EMISSION COMMERCIAL CARRIER").
+2. 2 Highlight Cards (Payload Certification, Operating Economics).
+3. 16:9 hero image + spec bar (4 specs: Certified Range, Top Speed, Max Grade, Full Charge) + FAME-II eligible ribbon + dual CTAs (Book, Download Spec Sheet).
+4. 6 feature cards ("Engineered For Relentless Commercial Duty").
+5. 4 application cards ("Purpose-Built For High-Yield Commercial Sectors").
+6. 4 spec modules ("Comprehensive Technical Specifications").
+7. Enquiry form ("Order or Inquire for Your eBull Fleet") + Loan/Corporate Desk cards.
+8. Footer CTA and Footer.
 
-**Outlets (`outlets.html`)**: page header · 4 hub cards (photo, open badge, address, tags, phone, Call + Directions) · dispatch ribbon · booking form (left) + become-a-dealer panel and B2B card (right) · 3 support cards · grievance form · footer.
+**Outlets (`outlets.html`)**
+1. Hero ("Visit an E-Royce Direct Outlet or Book Your EV Online") + 24 HR DISPATCH READY card.
+2. 4 Hub cards ("Direct Experience Hubs & Master Centers").
+3. Dispatch ribbon ("South India Quick Dispatch Corridor").
+4. Split layout: "Book Your Vehicle / Request Test Drive" form (left) + "Become an Authorized E-Royce Dealer" checklist panel + "Institutional Cargo Fleets" banner.
+5. "Customer Support & Grievance Registration": 24/7 Breakdown, Warranty & Battery Health, Periodic Maintenance Bay.
+6. Grievance form ("Register a Grievance or Ticket").
+7. Footer.
 
 ## 5. Responsive rules (derived — not in Figma)
 

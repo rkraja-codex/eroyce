@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
       hamburger.setAttribute('aria-expanded', !isExpanded);
       hamburger.classList.toggle('active');
       mainNav.classList.toggle('open');
+      document.body.classList.toggle('menu-open');
     });
 
     // Close menu when a link is clicked
@@ -20,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         hamburger.setAttribute('aria-expanded', 'false');
         hamburger.classList.remove('active');
         mainNav.classList.remove('open');
+        document.body.classList.remove('menu-open');
       });
     });
 
@@ -29,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
         hamburger.setAttribute('aria-expanded', 'false');
         hamburger.classList.remove('active');
         mainNav.classList.remove('open');
+        document.body.classList.remove('menu-open');
       }
     });
   }

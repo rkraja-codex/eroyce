@@ -21,11 +21,10 @@ You are a senior frontend engineer, backend engineer and deployment engineer. Bu
 1. Read `PROJECT_BRIEF.md`.
 2. List the files in `/design`, `/assets/images` and `/assets/icons`.
 3. Report:
-   - which design PNGs exist (`home.png`, `vehicles.png`, `ebull.png`, `outlets.png`)
-   - which are missing
+   - whether `eroyce.pdf` exists
    - which photos and icons are present or missing
    - anything in the brief you find unclear
-4. If a design PNG is missing, stop and ask me for it.
+4. If the design PDF is missing, stop and ask me for it.
 5. Download the official product images listed in brief section 7 into `assets/images/`, named `ebull.png`, `sardar.jpg`, `spike.png`, `rs90.png`, `rs180.png`. If a download fails, tell me the URL so I can save it manually.
 
 ## PHASE 1 — Foundation and shared layout
@@ -42,7 +41,7 @@ You are a senior frontend engineer, backend engineer and deployment engineer. Bu
 
 ## PHASE 2 — Home page (`index.html`)
 
-- Build every section listed in brief section 4 (Home), in order, matching `design/home.png`.
+- Build every section listed in brief section 4 (Home), in order, matching `eroyce.pdf` Page 1.
 - Section ids: `about`, `vehicles`, `applications`, `technology`, `outlets`, `contact`.
 - The fleet filter tabs (All / Commercial 3-Wheelers / Electric 2-Wheelers) must filter the cards with JS.
 - "View Vehicle" buttons link to `ebull.html`, `sardar.html`, `spike.html`, `rs90.html`, `rs180.html`.
@@ -54,7 +53,7 @@ You are a senior frontend engineer, backend engineer and deployment engineer. Bu
 
 ## PHASE 3 — Vehicle detail template and 5 vehicle pages
 
-- Build `ebull.html` to match `design/ebull.png`, using all sections from brief section 4.
+- Build `ebull.html` to match `eroyce.pdf` Page 2, using all sections from brief section 4.
 - Create `sardar.html`, `spike.html`, `rs90.html` and `rs180.html` from the **same template**. Only the content changes, never the layout.
 - Store all vehicle data in ONE file, `js/vehicles-data.js`, with one object per vehicle using exactly the data from brief section 7. The pages render their spec tables, hero spec bar and colour list from this file, so specs can be updated in one place.
 - If a vehicle has no data for a card or spec row, leave it out. Never write "N/A" filler or invented text.
@@ -64,14 +63,14 @@ You are a senior frontend engineer, backend engineer and deployment engineer. Bu
 
 ## PHASE 4 — Vehicles page (`vehicles.html`)
 
-- Build all sections from brief section 4 (Vehicles), matching `design/vehicles.png`.
+- Build all sections from brief section 4 (Vehicles), matching `eroyce.pdf` Page 4.
 - The filter tabs work.
 - Render the spec comparison table from `js/vehicles-data.js`. On mobile it scrolls inside its card, never the page.
 - The Figma TCO/cost comparison uses unverified numbers. Keep the card layout, but replace the figures with the real, verifiable spec comparisons from the brief, or remove the numbers and add `<!-- TODO: client to supply verified running-cost figures -->`. Tell me which option you chose.
 
 ## PHASE 5 — Outlets page (`outlets.html`)
 
-- Build all sections from brief section 4 (Outlets), matching `design/outlets.png`.
+- Build all sections from brief section 4 (Outlets), matching `eroyce.pdf` Page 3.
 - Show the 4 outlet cards from brief section 6.
 - WhatsApp buttons: `href="#"` with a visible "WhatsApp — coming soon" state and a `<!-- TODO: WhatsApp number -->` comment.
 - The booking form (Name, Email, Phone plus the vehicle picker cards from Figma; the chosen vehicle is sent as the `vehicle` field).
