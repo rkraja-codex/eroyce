@@ -225,23 +225,22 @@ document.addEventListener('DOMContentLoaded', () => {
           }
           form.reset();
         } else {
-          const response = await fetch(GOOGLE_SCRIPT_URL, {
+          // Using mode: 'no-cors' prevents CORS issues on the Google 302 redirect.
+          // Because of no-cors, the response is opaque, so we assume success if it doesn't throw.
+          await fetch(GOOGLE_SCRIPT_URL, {
             method: 'POST',
+            mode: 'no-cors',
             body: JSON.stringify(dataObj),
             headers: {
               'Content-Type': 'text/plain;charset=utf-8',
             }
           });
-          const result = await response.json();
-          if (result.status === 'success') {
-            if (statusDiv) {
-              statusDiv.textContent = 'Success! We have received your details.';
-              statusDiv.style.color = '#10b981';
-            }
-            form.reset();
-          } else {
-            throw new Error('Submission failed');
+          
+          if (statusDiv) {
+            statusDiv.textContent = 'Success! We have received your details.';
+            statusDiv.style.color = '#10b981';
           }
+          form.reset();
         }
       } catch (err) {
         if (statusDiv) {
