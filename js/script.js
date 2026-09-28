@@ -38,20 +38,64 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Set active nav link based on current page
   const currentPath = window.location.pathname;
+  const hash = window.location.hash;
   const navLinksAll = document.querySelectorAll('.nav-link');
-  navLinksAll.forEach(link => {
-    const linkPath = link.getAttribute('href');
-    if (linkPath && currentPath.endsWith(linkPath) && linkPath !== 'index.html') {
-      link.classList.add('active');
-    } else if (currentPath.endsWith('/') && linkPath === 'index.html') {
-      link.classList.add('active');
-    }
-  });
   
-  if (currentPath === '/' || currentPath === '/index.html' || currentPath.endsWith('eroyce/') || currentPath.endsWith('eroyce/index.html')) {
-    const homeLink = document.querySelector('.nav-link[href="index.html"]');
-    if (homeLink) homeLink.classList.add('active');
+  // Clear all active classes first
+  navLinksAll.forEach(link => link.classList.remove('active'));
+
+  const vehiclePages = ['ebull.html', 'sardar.html', 'spike.html', 'rs90.html', 'rs180.html'];
+  const isVehiclePage = vehiclePages.some(page => currentPath.endsWith(page));
+  
+  if (isVehiclePage) {
+    // If it's a vehicle detail page, highlight "Vehicles" nav link
+    const vehiclesLink = document.querySelector('.nav-link[href="vehicles.html"]');
+    if (vehiclesLink) vehiclesLink.classList.add('active');
+  } else {
+    let matched = false;
+    navLinksAll.forEach(link => {
+      const href = link.getAttribute('href');
+      if (href.includes('#')) {
+        // Match hash links only if we're on the home page and the hash matches exactly
+        if (currentPath.endsWith('index.html') || currentPath.endsWith('/') || currentPath.endsWith('eroyce/')) {
+          const linkHash = href.substring(href.indexOf('#'));
+          if (hash === linkHash) {
+            link.classList.add('active');
+            matched = true;
+          }
+        }
+      } else {
+        // Match regular pages exactly
+        if (currentPath.endsWith(href) && href !== 'index.html') {
+          link.classList.add('active');
+          matched = true;
+        }
+      }
+    });
+
+    // If nothing matched and we are on home page, highlight Home
+    if (!matched && (currentPath === '/' || currentPath.endsWith('index.html') || currentPath.endsWith('eroyce/'))) {
+      if (!hash || hash === '') {
+        const homeLink = document.querySelector('.nav-link[href="index.html"]');
+        if (homeLink) homeLink.classList.add('active');
+      }
+    }
   }
+
+  // Dynamically update active link on hash click
+  navLinksAll.forEach(link => {
+    link.addEventListener('click', function() {
+      const href = this.getAttribute('href');
+      // Only do this if clicking a link that stays on the current page
+      if (href.includes('#') && (currentPath === '/' || currentPath.endsWith('index.html') || currentPath.endsWith('eroyce/'))) {
+        navLinksAll.forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+      } else if (href === 'index.html' && (currentPath === '/' || currentPath.endsWith('index.html') || currentPath.endsWith('eroyce/'))) {
+        navLinksAll.forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+      }
+    });
+  });
 
   // Smooth scroll for hash links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {

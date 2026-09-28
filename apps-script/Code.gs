@@ -1,11 +1,11 @@
 function doPost(e) {
-  const sheetId = 'YOUR_SPREADSHEET_ID_HERE'; // Replace with actual Spreadsheet ID
   let doc;
   try {
-    doc = SpreadsheetApp.openById(sheetId);
+    // Use the spreadsheet this script is attached to
+    doc = SpreadsheetApp.getActiveSpreadsheet();
+    if (!doc) throw new Error("No active spreadsheet");
   } catch (err) {
-    // If ID is not set or accessible, fallback gracefully (useful if just deployed)
-    return ContentService.createTextOutput(JSON.stringify({ status: 'error', message: 'Spreadsheet ID not configured correctly.' }))
+    return ContentService.createTextOutput(JSON.stringify({ status: 'error', message: 'Script must be bound to a Google Sheet.' }))
                          .setMimeType(ContentService.MimeType.JSON);
   }
   
