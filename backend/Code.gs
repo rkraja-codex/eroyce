@@ -1,54 +1,9 @@
-/*************************************************************************
- * E-ROYCE MOTORS — GOOGLE APPS SCRIPT BACKEND
- * One Web App endpoint that receives all website form submissions and
- * appends each one as a new row in the correct worksheet of the Google
- * Sheet this script is bound to.
- *
- * Forms currently live on the website (verified by inspecting the
- * frontend — there are no other forms in the project right now):
- *   1. Contact form        — frontend/contact.html             formType: "contact"
- *   2. Book Your Vehicle   — frontend/book.html                formType: "booking"
- *   3. Dealership Enquiry  — frontend/dealership-entities.html  formType: "dealership"
- *
- * All three pages already POST to the same deployed Web App URL
- * (see GOOGLE_SCRIPT_URL inside each page's <script> block), so no
- * frontend changes are required to use this file — only deploy it.
- *
- * DEPLOYMENT
- *   1. Open the Google Sheet that should receive submissions.
- *   2. Extensions -> Apps Script.
- *   3. Replace the contents of Code.gs with this entire file.
- *   4. Save.
- *   5. Deploy -> New deployment -> type: Web app.
- *        Execute as: Me
- *        Who has access: Anyone
- *   6. Deploy, authorize when prompted, copy the Web App URL.
- *   7. If the URL differs from the one already in the frontend, update
- *      the GOOGLE_SCRIPT_URL constant in: frontend/book.html,
- *      frontend/contact.html, frontend/dealership-entities.html.
- *************************************************************************/
-
-/*************************************************
- * CONFIGURATION
- * Map each formType value sent by the website to the exact worksheet
- * (tab) name it should be written to. Rename the values on the right
- * to match your actual spreadsheet tabs — they are NOT auto-discovered
- * from the spreadsheet, since this script has no prior access to it.
- * If a tab with this name does not exist, it is created automatically
- * (existing tabs and their data are never touched, cleared, or renamed).
- *************************************************/
 const SHEET_MAP = {
   contact:    'Contact',
   booking:    'Bookings',
   dealership: 'Dealership Enquiry'
 };
 
-/*************************************************
- * FORM FIELD DEFINITIONS
- * Column order = row order written to the sheet. "required" fields are
- * validated before anything is written. These match the exact field
- * names each form's JS currently sends (see each page's fetch() body).
- *************************************************/
 const FORM_SCHEMAS = {
   contact: {
     required: ['name', 'email', 'phone', 'message'],
@@ -89,9 +44,6 @@ const FORM_SCHEMAS = {
   }
 };
 
-/*************************************************
- * ENTRY POINTS
- *************************************************/
 function doGet(e) {
   return jsonResponse_({ status: 'ok', message: 'E-Royce form backend is live.' });
 }
@@ -141,23 +93,15 @@ function doPost(e) {
 
     return jsonResponse_({ success: true, status: 'success', message: 'Form submitted successfully.' });
   } catch (err) {
-    // Full error goes to the Apps Script execution log only — never to the client.
     console.error('doPost error: ' + err + (err && err.stack ? '\n' + err.stack : ''));
     return jsonResponse_({ success: false, status: 'error', message: 'Unable to submit the form. Please try again.' });
   }
 }
 
-// Handles CORS preflight requests from browsers.
 function doOptions(e) {
   return ContentService.createTextOutput('').setMimeType(ContentService.MimeType.TEXT);
 }
 
-/*************************************************
- * HELPERS
- *************************************************/
-
-// The frontend posts with Content-Type: text/plain (to avoid CORS preflight
-// failures on Apps Script), so the JSON body always arrives in e.postData.contents.
 function parseRequestBody_(e) {
   if (!e || !e.postData || !e.postData.contents) return null;
   try {
@@ -174,8 +118,6 @@ function getMissingFields_(data, requiredFields) {
   });
 }
 
-// Returns the named sheet, creating it (with a bold, frozen header row)
-// only if it does not already exist. Never clears or alters existing sheets.
 function getOrCreateSheet_(spreadsheet, sheetName, headers) {
   let sheet = spreadsheet.getSheetByName(sheetName);
   if (!sheet) {
