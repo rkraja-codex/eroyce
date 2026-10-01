@@ -10,6 +10,7 @@ const DATA_FILE = path.join(__dirname, 'submissions.json');
 app.use(cors());
 app.use(express.json());
 app.use(express.text({ type: '*/*' }));
+app.use(express.static(path.join(__dirname, '../frontend')));
 
 // Prepare for Google Sheets integration
 // Uncomment and configure these when ready to use Google Sheets:
