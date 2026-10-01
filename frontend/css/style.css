@@ -2128,6 +2128,14 @@ body.header-scrolled .site-header {
   gap: 32px;
 }
 .achievement-card { display: flex; flex-direction: column; }
+.achievement-card .media-frame {
+  background: #f8fafc;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+.achievement-card .media-frame img {
+  object-fit: contain;
+  padding: 4px;
+}
 .achievement-title {
   font-size: 15px;
   font-weight: 700;
