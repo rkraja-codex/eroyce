@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frequently Asked Questions | E-Royce Motors</title>
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .faq-section {
+      padding: 80px 0;
+      background: var(--bg-subtle);
+      min-height: 70vh;
+    }
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      background: #fff;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      overflow: hidden;
+      border: 1px solid var(--gray-300);
+    }
+    .faq-question {
+      padding: 20px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--black);
+      transition: background 0.3s;
+    }
+    .faq-question:hover {
+      background: #f9fafb;
+    }
+    .faq-icon {
+      font-size: 20px;
+      color: var(--red);
+      transition: transform 0.3s;
+    }
+    .faq-answer {
+      padding: 0 24px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      background: #fff;
+      color: var(--gray-700);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    .faq-item.active .faq-answer {
+      padding: 0 24px 20px 24px;
+      max-height: 500px; /* arbitrary large value for animation */
+    }
+    .faq-item.active .faq-icon {
+      transform: rotate(180deg);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="page-hero" style="background-image:linear-gradient(135deg, rgba(10,10,10,0.90) 0%, rgba(26,5,5,0.86) 60%, rgba(45,8,8,0.84) 100%), url('assets/images/ebull-road.png');background-size:cover;background-position:center;">
+      <div class="container page-hero-inner">
+        <div class="page-breadcrumb"><a href="index.html">Home</a> <span>/</span> FAQ</div>
+        <div class="page-hero-eyebrow"><span class="page-hero-eyebrow-dot"></span>SUPPORT</div>
+        <h1>Frequently Asked <span>Questions</span></h1>
+        <p class="page-hero-sub">Everything you need to know about E-Royce vehicles, booking, and support.</p>
+      </div>
+    </div>
+
+    <section class="faq-section">
+      <div class="container faq-container reveal">
+        
+        <div class="faq-item">
+          <div class="faq-question">What is E-Royce? <span class="faq-icon">▼</span></div>
+          <div class="faq-answer">E-Royce Motors India Pvt. Ltd. is a manufacturer of premium electric two-wheelers and commercial three-wheelers, based in Coimbatore, Tamil Nadu. We focus on providing eco-friendly, accessible, and high-performance electric mobility solutions.</div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">What types of electric vehicles does E-Royce offer? <span class="faq-icon">▼</span></div>
+          <div class="faq-answer">We offer electric scooters for urban commuting (Spike, RS90, RS180) and commercial electric three-wheelers (eBull for cargo, Sardar for passenger transport).</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">How can I book an E-Royce vehicle? <span class="faq-icon">▼</span></div>
+          <div class="faq-answer">You can easily book your vehicle online through our website by visiting the "Book Your Vehicle" page. Just fill out your details, select your preferred model, and submit the inquiry.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Do I need a driving license or RTO registration for the Spike scooter? <span class="faq-icon">▼</span></div>
+          <div class="faq-answer">No, the E-Royce Spike is a low-speed electric scooter (top speed 25 km/h) and does not require RTO registration or a driving license to operate.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Where can I find E-Royce dealers? <span class="faq-icon">▼</span></div>
+          <div class="faq-answer">We have a growing network across Tamil Nadu with direct outlets in Chennai, Coimbatore, and Madurai, along with authorised dealers in over 20 districts. You can find more details on our Dealers page.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">How can I contact customer support? <span class="faq-icon">▼</span></div>
+          <div class="faq-answer">You can reach our customer support via the Contact page, or click the WhatsApp icon on the bottom right of the screen to chat with us directly.</div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <script src="js/vehicles-data.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const items = document.querySelectorAll('.faq-item');
+      items.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+          // Close others
+          items.forEach(i => {
+            if (i !== item) i.classList.remove('active');
+            if (i !== item) i.querySelector('.faq-icon').textContent = '▼';
+          });
+          // Toggle current
+          item.classList.toggle('active');
+          item.querySelector('.faq-icon').textContent = item.classList.contains('active') ? '▲' : '▼';
+        });
+      });
+    });
+  </script>
+</body>
+</html>

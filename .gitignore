@@ -1,10 +1,9 @@
 .DS_Store
 node_modules/
 .env
-design/
-eroyce-starter.zip
-eroyce.png
-generate.js
-generate-vehicles.js
-generate-outlets.js
+.env.*
+!.env.example
 .gemini/
+
+# Local-fallback form submissions — contains real customer PII, never commit
+backend/submissions.json
