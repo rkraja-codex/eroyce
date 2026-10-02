@@ -11,6 +11,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.text({ type: '*/*' }));
 
+// Serve static files locally (Vercel does this automatically)
+if (!process.env.VERCEL) {
+  app.use(express.static(path.join(__dirname, '../')));
+}
 // Prepare for Google Sheets integration
 // Uncomment and configure these when ready to use Google Sheets:
 // const { GoogleSpreadsheet } = require('google-spreadsheet');
