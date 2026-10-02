@@ -19,7 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (targetElement) {
           e.preventDefault();
-          const headerOffset = 80;
+          // Use the actual header height dynamically so the offset is correct
+          // at every breakpoint and header state (compact vs full)
+          const siteHeader = document.getElementById('siteHeader');
+          const headerOffset = siteHeader ? siteHeader.offsetHeight + 24 : 96;
           const elementPosition = targetElement.getBoundingClientRect().top;
           const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
           
