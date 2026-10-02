@@ -408,20 +408,18 @@ body.header-scrolled .site-header {
   position: relative;
   white-space: nowrap;
   transition: color 0.2s;
+  padding-bottom: 4px;
+  border-bottom: 2.5px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
 }
-.nav-link:hover { color: var(--red); }
+.nav-link:hover {
+  color: var(--red);
+  border-bottom-color: rgba(196, 0, 35, 0.3);
+}
 .nav-link.active {
   color: var(--red);
   font-weight: 600;
-}
-.nav-link.active::after {
-  content: "";
-  position: absolute;
-  bottom: -6px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: var(--red);
+  border-bottom: 2.5px solid var(--red);
 }
 .hamburger {
   display: none;
@@ -493,9 +491,7 @@ body.header-scrolled .site-header {
     display: flex;
     align-items: center;
   }
-  .nav-link.active::after {
-    bottom: -8px;
-  }
+  /* nav-link active uses border-bottom — no ::after offset needed on mobile */
   .hamburger { 
     display: flex;
     z-index: 1200; /* above the nav overlay so it stays accessible */
@@ -2465,7 +2461,8 @@ body.menu-open .wa-floating { opacity: 0; pointer-events: none; }
   margin-top: 4px;
   line-height: 1.2;
 }
-.sdg-highlighted { outline: 3px solid #fff; box-shadow: 0 0 0 2px rgba(0,0,0,0.3); }
+.sdg-highlighted { outline: 3px solid rgba(255,255,255,0.75); box-shadow: 0 4px 18px rgba(0,0,0,0.28); }
+.sdg-section .sdg-highlighted { outline: 3px solid rgba(0,0,0,0.2); box-shadow: 0 4px 18px rgba(0,0,0,0.18); }
 .sdg-relevant-note {
   font-size: 13px;
   color: var(--muted);
@@ -3263,38 +3260,45 @@ img { display: block; max-width: 100%; height: auto; }
   transform: translateX(0);
 }
 
-/* ── SDG Cards (Sustainability) ─────────────────────────── */
-.sdg-card {
+/* ── SDG Cards — homepage dark-bg sustainability section only ── */
+/* Scoped so about.html colorful inline-background cards are not overridden */
+section[style*="background:var(--black)"] .sdg-card,
+section[style*="background: var(--black)"] .sdg-card {
   border-radius: 14px;
-  padding: 24px 20px !important;
-  text-align: center !important;
-  border: 1px solid rgba(255,255,255,0.08) !important;
-  background: rgba(255,255,255,0.04) !important;
+  padding: 24px 20px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.04);
   backdrop-filter: blur(8px);
   transition: transform 0.3s cubic-bezier(0.22,1,0.36,1),
               box-shadow 0.3s ease,
-              background 0.3s ease !important;
+              background 0.3s ease;
   position: relative;
   overflow: hidden;
 }
-.sdg-card:hover {
-  transform: translateY(-6px) !important;
-  background: rgba(255,255,255,0.07) !important;
-  box-shadow: 0 16px 40px rgba(0,0,0,0.4) !important;
+section[style*="background:var(--black)"] .sdg-card:hover,
+section[style*="background: var(--black)"] .sdg-card:hover {
+  transform: translateY(-6px);
+  background: rgba(255,255,255,0.07);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.4);
 }
-.sdg-number {
+/* SDG number & label — homepage dark-bg usage */
+section[style*="background:var(--black)"] .sdg-number,
+section[style*="background: var(--black)"] .sdg-number {
   font-family: var(--font-head);
-  font-size: 36px !important;
-  font-weight: 900 !important;
+  font-size: 36px;
+  font-weight: 900;
+  color: #fff;
   margin-bottom: 4px;
   line-height: 1;
 }
-.sdg-label {
-  font-size: 10px !important;
-  color: rgba(255,255,255,0.45) !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.8px !important;
-  margin-top: 6px !important;
+section[style*="background:var(--black)"] .sdg-label,
+section[style*="background: var(--black)"] .sdg-label {
+  font-size: 10px;
+  color: rgba(255,255,255,0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-top: 6px;
   font-family: var(--font-mono);
 }
 
@@ -3305,12 +3309,7 @@ img { display: block; max-width: 100%; height: auto; }
   letter-spacing: -0.3px;
 }
 
-/* Active nav link underline refined */
-.nav-link.active::after {
-  background: var(--grad-red);
-  height: 2.5px;
-  border-radius: 2px;
-}
+/* Active nav link underline — cleaned up, now handled by border-bottom on .nav-link.active */
 
 /* Footer CTA refinement */
 .footer-cta-title {
@@ -3325,3 +3324,148 @@ img { display: block; max-width: 100%; height: auto; }
   border-top: 1px solid rgba(255,255,255,0.04);
   border-bottom: 1px solid rgba(255,255,255,0.04);
 }
+
+/* ── Marquee Text Strip ─────────────────────────────────────
+   Inspired by the reference eroyce.in site scrolling tagline
+   ─────────────────────────────────────────────────────────── */
+.marquee-section {
+  background: var(--red);
+  overflow: hidden;
+  padding: 14px 0;
+  white-space: nowrap;
+  position: relative;
+  z-index: 1;
+}
+.marquee-track {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+}
+.marquee-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  animation: marqueeScroll 28s linear infinite;
+  will-change: transform;
+}
+@keyframes marqueeScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-item {
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 0 24px;
+  white-space: nowrap;
+}
+.marquee-dot {
+  color: rgba(255,255,255,0.55);
+  font-size: 16px;
+  padding: 0 4px;
+  flex-shrink: 0;
+}
+.marquee-section:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+/* ── Experience the Difference Banner ───────────────────────
+   Full-width cinematic video section like reference site
+   ─────────────────────────────────────────────────────────── */
+.experience-banner-section {
+  position: relative;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #000;
+}
+.experience-banner-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.experience-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.45;
+  display: block;
+}
+.experience-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(9,9,11,0.80) 0%,
+    rgba(140,0,25,0.55) 60%,
+    rgba(9,9,11,0.75) 100%
+  );
+  z-index: 1;
+}
+.experience-banner-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 80px var(--gutter);
+}
+.experience-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--red);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.experience-eyebrow::before,
+.experience-eyebrow::after {
+  content: '';
+  display: block;
+  height: 1px;
+  width: 40px;
+  background: var(--red);
+  opacity: 0.6;
+}
+.experience-title {
+  font-family: var(--font-head);
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 20px;
+}
+.experience-title span {
+  color: var(--red);
+  display: block;
+}
+.experience-sub {
+  font-size: 15px;
+  color: rgba(255,255,255,0.65);
+  max-width: 520px;
+  margin: 0 auto 36px;
+  line-height: 1.65;
+}
+.experience-cta {
+  font-size: 13px;
+  letter-spacing: 2px;
+  padding: 14px 40px;
+}
+@media (max-width: 767px) {
+  .experience-banner-section {
+    min-height: 380px;
+  }
+  .experience-banner-content {
+    padding: 60px var(--gutter);
+  }
+}
+

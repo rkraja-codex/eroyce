@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -23,7 +23,7 @@
       <div class="container hero-video-content">
         <div class="hero-eyebrow-pill reveal">
           <span class="hero-live-dot"></span>
-          E-ROYCE MOTORS &nbsp;•&nbsp; NEW GENERATION EV
+          E-ROYCE MOTORS &nbsp;&bull;&nbsp; NEW GENERATION EV
         </div>
         <h1 class="hero-video-title reveal">
           Drive the Future.<br>
@@ -52,6 +52,38 @@
       </div>
     </section>
 
+    <!-- Animated Marquee Text Strip (inspired by reference site) -->
+    <section class="marquee-section">
+      <div class="marquee-track">
+        <div class="marquee-content">
+          <span class="marquee-item">Zero Emissions.</span>
+          <span class="marquee-dot">&bull;</span>
+          <span class="marquee-item">Cost Savings.</span>
+          <span class="marquee-dot">&bull;</span>
+          <span class="marquee-item">Drive Without Contributing to Air Pollution.</span>
+          <span class="marquee-dot">&bull;</span>
+          <span class="marquee-item">100% Electric.</span>
+          <span class="marquee-dot">&bull;</span>
+          <span class="marquee-item">Built for India.</span>
+          <span class="marquee-dot">&bull;</span>
+          <span class="marquee-item">ARAI Compliant.</span>
+          <span class="marquee-dot">&bull;</span>
+          <span class="marquee-item">Zero Emissions.</span>
+          <span class="marquee-dot">&bull;</span>
+          <span class="marquee-item">Cost Savings.</span>
+          <span class="marquee-dot">&bull;</span>
+          <span class="marquee-item">Drive Without Contributing to Air Pollution.</span>
+          <span class="marquee-dot">&bull;</span>
+          <span class="marquee-item">100% Electric.</span>
+          <span class="marquee-dot">&bull;</span>
+          <span class="marquee-item">Built for India.</span>
+          <span class="marquee-dot">&bull;</span>
+          <span class="marquee-item">ARAI Compliant.</span>
+          <span class="marquee-dot">&bull;</span>
+        </div>
+      </div>
+    </section>
+
     <!-- KPI Cards -->
     <section class="section kpi-section">
       <div class="container reveal">
@@ -64,7 +96,7 @@
           <div class="card kpi-card" style="text-align:left;">
             <div class="kpi-eyebrow" style="font-size:10px;color:var(--red);font-family:var(--font-mono);margin-bottom:8px;text-transform:uppercase;">Statewide Network</div>
             <div class="kpi-value" style="font-size:20px;text-align:left;">TN Retail Hubs</div>
-            <div class="kpi-label" style="text-align:left;font-size:13px;margin-top:4px;">Chennai • Coimbatore • Madurai direct outlets</div>
+            <div class="kpi-label" style="text-align:left;font-size:13px;margin-top:4px;">Chennai &bull; Coimbatore &bull; Madurai direct outlets</div>
           </div>
           <div class="card kpi-card" style="text-align:left;">
             <div class="kpi-eyebrow" style="font-size:10px;color:var(--red);font-family:var(--font-mono);margin-bottom:8px;text-transform:uppercase;">Make In India</div>
@@ -73,10 +105,26 @@
           </div>
           <div class="card kpi-card" style="text-align:left;">
             <div class="kpi-eyebrow" style="font-size:10px;color:var(--red);font-family:var(--font-mono);margin-bottom:8px;text-transform:uppercase;">Fleet Economics</div>
-            <div class="kpi-value" style="font-size:20px;text-align:left;">₹0.45 / km</div>
+            <div class="kpi-value" style="font-size:20px;text-align:left;">&#8377;0.45 / km</div>
             <div class="kpi-label" style="text-align:left;font-size:13px;margin-top:4px;">Drastic reduction in fleet operating OPEX</div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Experience the Difference Video Banner (inspired by reference site) -->
+    <section class="experience-banner-section">
+      <div class="experience-banner-bg">
+        <video autoplay muted loop playsinline preload="metadata" class="experience-video">
+          <source src="assets/videos/home-video-1.mp4" type="video/mp4">
+        </video>
+        <div class="experience-banner-overlay"></div>
+      </div>
+      <div class="container experience-banner-content reveal">
+        <div class="experience-eyebrow">EXPERIENCE E-ROYCE</div>
+        <h2 class="experience-title">Experience the Difference<br><span>with eRoyce</span></h2>
+        <p class="experience-sub">Pioneering the Future of Transportation &mdash; Zero Emission, Maximum Performance</p>
+        <a href="vehicles.html" class="btn btn-primary experience-cta">EXPLORE NOW</a>
       </div>
     </section>
 
@@ -91,12 +139,14 @@
         <div class="vc-track-wrapper">
           <div class="vehicle-canvas-track" id="vehicleTrack">
             <div class="vc-card reveal">
-              <div class="vc-card-img-wrap"><img src="assets/images/ebull.png" alt="eBull" class="vc-card-img"></div>
+              <div class="vc-card-img-wrap">
+                <img src="assets/images/ebull-menu.png" alt="eBull" class="vc-card-img" onerror="this.src='assets/images/ebull.png'">
+              </div>
               <div class="vc-card-content">
                 <div class="vc-card-tag">Commercial 3-Wheeler</div>
                 <h3 class="vc-card-name">eBull</h3>
                 <div class="vc-card-specs">
-                  <div class="vc-spec"><span>Range</span><strong>50–110 km</strong></div>
+                  <div class="vc-spec"><span>Range</span><strong>50-110 km</strong></div>
                   <div class="vc-spec"><span>Speed</span><strong>25 km/h</strong></div>
                   <div class="vc-spec"><span>Charge</span><strong>8 hrs</strong></div>
                 </div>
@@ -104,12 +154,14 @@
               </div>
             </div>
             <div class="vc-card reveal">
-              <div class="vc-card-img-wrap"><img src="assets/images/sardar red.png" alt="Sardar" class="vc-card-img"></div>
+              <div class="vc-card-img-wrap">
+                <img src="assets/images/sardar-menu.png" alt="Sardar" class="vc-card-img" onerror="this.src='assets/images/sardar red.png'">
+              </div>
               <div class="vc-card-content">
                 <div class="vc-card-tag">Electric Scooter</div>
                 <h3 class="vc-card-name">Sardar</h3>
                 <div class="vc-card-specs">
-                  <div class="vc-spec"><span>Range</span><strong>90–100 km</strong></div>
+                  <div class="vc-spec"><span>Range</span><strong>90-100 km</strong></div>
                   <div class="vc-spec"><span>Speed</span><strong>60 km/h</strong></div>
                   <div class="vc-spec"><span>Charge</span><strong>4 hrs</strong></div>
                 </div>
@@ -117,12 +169,14 @@
               </div>
             </div>
             <div class="vc-card reveal">
-              <div class="vc-card-img-wrap"><img src="assets/images/Spike-Red1-1.png" alt="Spike" class="vc-card-img"></div>
+              <div class="vc-card-img-wrap">
+                <img src="assets/images/spike-menu.png" alt="Spike" class="vc-card-img" onerror="this.src='assets/images/Spike-Red1-1.png'">
+              </div>
               <div class="vc-card-content">
                 <div class="vc-card-tag">Electric Scooter</div>
                 <h3 class="vc-card-name">Spike</h3>
                 <div class="vc-card-specs">
-                  <div class="vc-spec"><span>Range</span><strong>70–80 km</strong></div>
+                  <div class="vc-spec"><span>Range</span><strong>70-80 km</strong></div>
                   <div class="vc-spec"><span>Speed</span><strong>25 km/h</strong></div>
                   <div class="vc-spec"><span>Charge</span><strong>4 hrs</strong></div>
                 </div>
@@ -130,12 +184,14 @@
               </div>
             </div>
             <div class="vc-card reveal">
-              <div class="vc-card-img-wrap"><img src="assets/images/blue.png" alt="RS90" class="vc-card-img"></div>
+              <div class="vc-card-img-wrap">
+                <img src="assets/images/rs90-menu.png" alt="RS90" class="vc-card-img" onerror="this.src='assets/images/blue.png'">
+              </div>
               <div class="vc-card-content">
                 <div class="vc-card-tag">Electric Scooter</div>
                 <h3 class="vc-card-name">RS90</h3>
                 <div class="vc-card-specs">
-                  <div class="vc-spec"><span>Range</span><strong>50–90 km</strong></div>
+                  <div class="vc-spec"><span>Range</span><strong>50-90 km</strong></div>
                   <div class="vc-spec"><span>Speed</span><strong>25 km/h</strong></div>
                   <div class="vc-spec"><span>Charge</span><strong>4 hrs</strong></div>
                 </div>
@@ -143,12 +199,14 @@
               </div>
             </div>
             <div class="vc-card reveal">
-              <div class="vc-card-img-wrap"><img src="assets/images/rs 180 yellow.png" alt="RS180" class="vc-card-img"></div>
+              <div class="vc-card-img-wrap">
+                <img src="assets/images/rs180-menu.png" alt="RS180" class="vc-card-img" onerror="this.src='assets/images/rs 180 yellow.png'">
+              </div>
               <div class="vc-card-content">
                 <div class="vc-card-tag">Electric Scooter</div>
                 <h3 class="vc-card-name">RS180</h3>
                 <div class="vc-card-specs">
-                  <div class="vc-spec"><span>Range</span><strong>50–90 km</strong></div>
+                  <div class="vc-spec"><span>Range</span><strong>50-90 km</strong></div>
                   <div class="vc-spec"><span>Speed</span><strong>25 km/h</strong></div>
                   <div class="vc-spec"><span>Charge</span><strong>4 hrs</strong></div>
                 </div>
@@ -168,12 +226,22 @@
       </div>
     </section>
 
-    <!-- Featured Banner -->
+    <!-- Featured Banner 1: eBull On-Road photo (Er_FG_V6.png from reference site) -->
+    <section class="section" style="padding-top:0;">
+      <div class="container reveal">
+        <div class="media-frame" style="aspect-ratio:16/7;">
+          <img src="assets/images/Er_FG_V6.png" alt="E-Royce eBull Commercial EV on Road" loading="lazy">
+          <div class="media-frame-caption">eBull &mdash; India's Toughest Electric Commercial Vehicle</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Banner 2: RS90 Scooter Close-up (banner_6_1.jpg from reference site) -->
     <section class="section" style="padding-top:0;">
       <div class="container reveal">
         <div class="media-frame" style="aspect-ratio:21/9;">
-          <img src="assets/images/rs90-banner.jpg" alt="E-Royce RS90 Electric Scooter" loading="lazy">
-          <div class="media-frame-caption">RS90 — Everyday Electric, Engineered for India</div>
+          <img src="assets/images/banner_6_1.jpg" alt="E-Royce RS90 Electric Scooter" loading="lazy">
+          <div class="media-frame-caption">RS90 &mdash; Everyday Electric, Engineered for India</div>
         </div>
       </div>
     </section>
@@ -185,7 +253,7 @@
         <div class="why-eroyce-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-top:32px;">
           <div>
             <h2 class="section-h2">Pioneering Clean Transportation for India.</h2>
-            <p class="body-text">E Royce Motors India Pvt. Ltd. is an electric two-wheeler and three-wheeler manufacturer headquartered in Coimbatore, Tamil Nadu. We build high-performance EVs designed for demanding Indian road conditions — delivering exceptional payload capacity, drastic operating cost savings, and zero tailpipe emissions.</p>
+            <p class="body-text">E Royce Motors India Pvt. Ltd. is an electric two-wheeler and three-wheeler manufacturer headquartered in Coimbatore, Tamil Nadu. We build high-performance EVs designed for demanding Indian road conditions &mdash; delivering exceptional payload capacity, drastic operating cost savings, and zero tailpipe emissions.</p>
             <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:32px;">
               <a href="about.html" class="btn btn-primary">LEARN ABOUT US</a>
               <a href="technology.html" class="btn btn-outline">OUR TECHNOLOGY</a>
@@ -206,14 +274,14 @@
       <div class="container reveal" style="text-align:center;">
         <div class="eyebrow">EXPLORE E-ROYCE</div>
         <h2 class="section-h2" style="margin-top:16px;">Everything You Need</h2>
-        <p class="body-text" style="max-width:520px;margin:0 auto 48px;">Explore vehicles, find dealers, book a test ride, or reach our team — all in one place.</p>
+        <p class="body-text" style="max-width:520px;margin:0 auto 48px;">Explore vehicles, find dealers, book a test ride, or reach our team &mdash; all in one place.</p>
         <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:0;text-align:left;">
           <a href="vehicles.html" class="card ql-card">
             <div class="ql-icon">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
             </div>
             <div class="ql-title">Vehicles</div>
-            <div class="ql-desc">Explore our full EV lineup — 2-wheelers and commercial 3-wheelers.</div>
+            <div class="ql-desc">Explore our full EV lineup &mdash; 2-wheelers and commercial 3-wheelers.</div>
             <div class="ql-arrow">View All <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></div>
           </a>
           <a href="dealer-locator.html" class="card ql-card">
@@ -237,7 +305,7 @@
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.77-.77a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             </div>
             <div class="ql-title">Contact Us</div>
-            <div class="ql-desc">Talk to our team — sales, support, and dealership enquiries.</div>
+            <div class="ql-desc">Talk to our team &mdash; sales, support, and dealership enquiries.</div>
             <div class="ql-arrow">Get In Touch <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></div>
           </a>
         </div>

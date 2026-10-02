@@ -7,3 +7,7 @@ node_modules/
 
 # Local-fallback form submissions — contains real customer PII, never commit
 backend/submissions.json
+
+# Reference site download — local only, not for the repo
+E Royce Electric Scooters & Commercial EV in Tamil Nadu.html
+E Royce Electric Scooters & Commercial EV in Tamil Nadu_files/
