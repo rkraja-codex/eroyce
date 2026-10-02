@@ -1,40 +1,7 @@
 // js/script.js
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Mobile Menu Toggle
-  const hamburger = document.querySelector('.hamburger');
-  const mainNav = document.querySelector('.main-nav');
 
-  if (hamburger && mainNav) {
-    hamburger.addEventListener('click', () => {
-      const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
-      hamburger.setAttribute('aria-expanded', !isExpanded);
-      hamburger.classList.toggle('active');
-      mainNav.classList.toggle('open');
-      document.body.classList.toggle('menu-open');
-    });
-
-    // Close menu when a link is clicked
-    const navLinks = mainNav.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.setAttribute('aria-expanded', 'false');
-        hamburger.classList.remove('active');
-        mainNav.classList.remove('open');
-        document.body.classList.remove('menu-open');
-      });
-    });
-
-    // Close menu on Escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && mainNav.classList.contains('open')) {
-        hamburger.setAttribute('aria-expanded', 'false');
-        hamburger.classList.remove('active');
-        mainNav.classList.remove('open');
-        document.body.classList.remove('menu-open');
-      }
-    });
-  }
 
   // === Navigation Smooth Scroll & Scroll Spy ===
   const navLinksAll = document.querySelectorAll('.nav-link');
