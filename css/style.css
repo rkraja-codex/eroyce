@@ -3177,6 +3177,14 @@ img { display: block; max-width: 100%; height: auto; }
   text-transform: uppercase;
 }
 
+@media (max-width: 767px) {
+  .media-frame { aspect-ratio: 16/9 !important; }
+}
+@media (max-width: 480px) {
+  .media-frame { aspect-ratio: 4/3 !important; }
+  .media-frame-caption { font-size: 10px; padding: 12px 16px; }
+}
+
 /* ── Quick Links ─────────────────────────────────────────── */
 .ql-card {
   padding: 32px 28px !important;
